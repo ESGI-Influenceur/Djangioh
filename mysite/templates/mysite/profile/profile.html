@@ -1,0 +1,66 @@
+{% extends 'mysite/layout.html' %}
+
+{% block content %}
+
+<div class="my-3 my-md-5">
+
+    <div class="container">
+        <div class="page-header">
+            <div class="profile-logo">
+                <div class="avatar avatar-gray avatar-xxl text-uppercase" style="    display: flex;justify-content: center;align-items: center;">
+                    {{ user.username|slice:":1" }}{{ user.username|slice:"-1::1" }}
+                </div>
+            </div>
+            <div class="profile-name" >
+                <div class="profile-title mb-6">
+                    <h2 class="mr-5 mb-0" style="text-transform: capitalize;">{{ user.username }}</h2>
+                    <!--<a href="#" class="btn btn-outline-primary">Modifier le profil</a>-->
+                </div>
+                <div style="display: flex">
+                    <div class="alert alert-secondary mr-8" role="alert">
+                        {{allCards.count}} cards
+                    </div>
+                    <div class="alert alert-secondary mr-8" role="alert">
+                        0 victoires
+                    </div>
+                    <div class="alert alert-secondary" role="alert">
+                        {{ user.profile.credit }} credits
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cards" style="border-top: 1px solid #efefef;padding-top: 30px">
+            <div class="col-sm-6 col-lg-4">
+                    <div class="card shadow-none" >
+                        <a href="{% url 'cards' %}"><img class="card-img-top" src="/static/images/cartes.jpg" alt="And this isn&#39;t my nose. This is a false one."></a>
+                        <div class="card-body d-flex flex-column">
+                            <h4>Mes cartes</h4>
+                        </div>
+                    </div>
+
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="card shadow-none" >
+                    <a href="{% url 'decks' %}" style="background: linear-gradient(to bottom, #2D323E 0%, rgb(22, 25, 31) 100%);"><img class="card-img-top" src="/static/images/decks.jpg" alt="And this isn&#39;t my nose. This is a false one."></a>
+                    <div class="card-body d-flex flex-column">
+                        <h4>Mes decks</h4>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="card shadow-none" >
+                    <a href="{% url 'buy' %}"><img class="card-img-top" src="/static/images/booster.jpg" alt="And this isn&#39;t my nose. This is a false one."></a>
+                    <div class="card-body d-flex flex-column">
+                        <h4>Acheter des cartes</h4>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

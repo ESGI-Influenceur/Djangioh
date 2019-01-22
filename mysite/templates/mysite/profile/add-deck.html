@@ -1,0 +1,71 @@
+{% extends 'mysite/layout.html' %}
+
+{% block content %}
+
+
+<div class="my-3 my-md-5">
+    <div class="map-header">
+        <div class="header-cards">
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form class="card" method="post">
+
+                    {% csrf_token %}
+                    <div class="card-header">
+                        <h3 class="card-title">Ajouter un nouveau deck</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            {% if error %}
+                            <div class="col-12">
+                                <div class="alert alert-warning alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert"></button>
+                                    {{ error }}
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="row align-items-center">
+                                        <label class="form-label col-sm-2">Nom</label>
+                                        <div class="col-sm-10">
+                                            <input name="title" id="title" type="text" class="form-control"  placeholder="Text..">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Cards</label>
+                                    <div class="row gutters-sm">
+
+                                        {% for card in cardsUser %}
+                                        <div class="col-lg-1 col-md-6 col-sm-12">
+                                            <label class="imagecheck mb-4">
+                                                <input id="{{ card.card.id }}" type="checkbox" name="cards"  value="{{ card.card.id }}"   class="imagecheck-input">
+                                                <figure class="imagecheck-figure">
+                                                    <img src="/static/images/cards/{{ card.card.image}}" alt="}" class="imagecheck-image add-card">
+                                                </figure>
+                                            </label>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <div class="d-flex">
+                            <button type="reset" class="btn btn-danger">Cancel</button>
+                            <button type="submit" value="Valider" class="btn btn-primary ml-auto">Send data</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+version: "2.4"
+services:
+  db:
+    container_name: python-db
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: demo
+    volumes:
+       - ./database:/var/lib/postgresql/data
+  adminer:
+      container_name: python-phpmyadmin
+      image: adminer
+      restart: always
+      ports:
+        - 8080:8080
+  web:
+    build: .
+    container_name: python-server
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+    command: python manage.py runserver 0.0.0.0:8000
+    links:
+      - db
+    depends_on:
+      - db

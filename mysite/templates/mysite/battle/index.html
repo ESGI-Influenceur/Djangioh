@@ -1,0 +1,96 @@
+{% extends 'mysite/layout.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="my-3 my-md-5">
+    <div class="map-header">
+        <div class="header-cards">
+
+        </div>
+    </div>
+    <li class="container listFilm">
+        <div class="page-header">
+            <h1 class="page-title">
+                Les challengers
+            </h1>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="form-label">Votre deck actif pour combattre :</label>
+                <div class="selectgroup selectgroup-pills">
+
+                    {% for deck in allDecks %}
+
+                    <label class="selectgroup-item">
+                        <input type="radio" name="icon-input" value="1" class="selectgroup-input" checked="">
+                        <span class="selectgroup-button selectgroup-button-icon">
+                            {{ deck.title }}
+                        </span>
+                    </label>
+                    {% empty %}
+                    <div class="col">
+                        You do not have any decks yet.
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% if allDecks.count >= 1 %}
+        <div class="row">
+            <div class="form-group">
+                <label class="form-label">Votre adeversaire :</label>
+            </div>
+        </div>
+        <div class="row">
+            <ul class=" character-list" style="z-index: 33;padding: 0px">
+
+                <li>
+                    <div>
+                        <div>Yugi Muto</div>
+                        <div class="tag tag-rounded tag-red">1000 puissance</div>
+                    </div>
+                    <a href="{% url 'start' allDecks.first.id %}" class="cboxElement" name="dm01"  rel="dm">
+                        <img src="/static/images/player/yugi.png" alt="" class="hover">
+                    </a>
+
+                </li>
+                <li>
+                    <div>
+                        <div>Joey</div>
+                        <div class="tag tag-rounded tag-red">1500 puissance</div>
+                    </div>
+                    <a href="{% url 'start' allDecks.first.id %}" class="cboxElement" name="dm01"  rel="dm">
+                        <img src="/static/images/player/joey.png" alt="" class="hover">
+                    </a>
+                </li>
+                <li>
+                    <div>
+                        <div>Insecto</div>
+                        <div class="tag tag-rounded tag-red">2000 puissance</div>
+                    </div>
+
+                    <a href="{% url 'start' allDecks.first.id %}" class="cboxElement" name="dm01"  rel="dm">
+                        <img src="/static/images/player/insect.png" alt="" class="hover">
+                    </a>
+                </li>
+                <li>
+                    <div>
+                        <div>Kaiba</div>
+                        <div class="tag tag-rounded tag-red">3000 puissance</div>
+                    </div>
+
+                    <a href="{% url 'start' allDecks.first.id %}" class="cboxElement" name="dm01"  rel="dm">
+                        <img src="/static/images/player/kaiba.png" alt="" class="hover">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        {% else %}
+        <div class="alert alert-danger" role="alert">
+            Créer un deck avant !
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

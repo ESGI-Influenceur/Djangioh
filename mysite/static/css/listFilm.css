@@ -1,0 +1,156 @@
+.listFilm .card {
+    max-height: 278px !important;
+    min-height: 278px !important; }
+.listFilm .card-body {
+    overflow-y: scroll; }
+.listFilm .card-aside-column {
+    border-right: 1px solid rgba(0, 40, 100, 0.12);
+}
+.listFilm .card-header {
+    flex: 0 0 auto; }
+.listFilm .card-options {
+    align-self: inherit !important; }
+.listFilm .card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column; }
+.listFilm .card-title {
+    text-decoration: none;
+    color: inherit; }
+.listFilm .card-footer {
+    padding: 0.6rem 1.5rem; }
+
+.fiche {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    position: relative; }
+.fiche .ficher-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    background-image: radial-gradient(circle at -50px 100%, rgba(255, 255, 255, 0.6) 0%, rgba(0, 0, 0, 0.75) 100%); }
+.fiche .description {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 470px;
+    color: white; }
+.fiche .description .text-muted {
+    color: white !important;
+    font-size: 1.2em;
+    max-height: 400px;
+    overflow-y: auto; }
+.fiche .poster-image {
+    display: block;
+    width: 300px;
+    height: 450px;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12); }
+.fiche .fiche-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2; }
+
+.card-footer.text-right {
+    border-top: 0; }
+
+.cover-overlay {
+    background-image: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.01) 0%, rgba(0, 0, 0, 0.9) 100%); }
+
+.navDetail {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #dee2e6; }
+.navDetail ul {
+    margin: auto;
+    border-bottom: 0; }
+
+.movie-tab .tab-pane {
+    min-height: 200px; }
+
+.lecteur iframe {
+    width: 100%;
+    height: 300px; }
+
+#star-rating {
+    margin: auto 0; }
+#star-rating img {
+    width: 50px;
+    max-width: 50px; }
+
+.c3-chart-text {
+    color: white !important;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.header-wall{
+    background: url('/static/images/yugi.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+.header-cards{
+    background: url('/static/images/cartes.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.cards-bg{
+    flex: 0 0 200px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.add-card{
+    width: 200px;
+}
+
+.profile-logo{
+    flex: 0 0 40%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.profile-logo .avatar-xxl{
+    width: 8rem;
+    height: 8rem;
+}
+
+
+.profile-name{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.profile-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.deck-list{
+    height: 100%;
+    width: auto;
+}

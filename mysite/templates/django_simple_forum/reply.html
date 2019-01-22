@@ -1,0 +1,25 @@
+{% extends 'mysite/layout.html' %}
+
+<!-- Threads  -->
+
+{% block content %}
+<div class="my-3 my-md-5">
+
+    <div class="container">
+<div class="row my-5">
+  <div class="col-md-12">
+    
+
+<form action="{% url 'reply' topic.id %}" method="POST" class="form-horizontal form-element">
+    {% csrf_token %} 
+    {{ form.as_p }}
+    <input type="submit" value="Répondre"  class="btn btn-outline-primary mt-3"/>
+</form>
+
+ </div>
+</div>
+    </div>
+</div>
+
+
+{% endblock content %}

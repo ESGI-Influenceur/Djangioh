@@ -1,0 +1,55 @@
+{% extends 'mysite/layout.html' %}
+
+<!-- Threads  -->
+
+{% block content %}
+<div class="my-3 my-md-5">
+
+    <div class="container">
+<div class="row my-5">
+  <div class="col-md-12">
+    
+
+
+
+<!-- Posts  -->
+<div class="ttitle" style="width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;">Topic : {{ topic.title }}</div>
+<div id="list">
+
+    {% for post in posts.object_list %}
+        <div class="post" style="padding:15px">
+            <div>{{ post.body }}</div>
+            by {{ post.creator }} | <span class="date">{{ post.created }}</span>    
+        </div>
+    {% endfor %}
+</div>
+
+<!-- Next/Prev page links  -->
+{% if posts.object_list and posts.paginator.num_pages > 1 %}
+<div class="pagination">
+    <span class="step-links">
+        {% if posts.has_previous %}
+            <a href= "?page={{ posts.previous_page_number }}">previous &lt;&lt; </a>
+        {% endif %}
+
+        <span class="current">
+            &nbsp;Page {{ posts.number }} of {{ topics.paginator.num_pages }}
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}"> &gt;&gt; next</a>
+        {% endif %}
+    </span>
+</div>
+{% endif %}
+<a class="btn btn-outline-primary mt-3" href="{% url 'reply' pk %}">Répondre</a>
+
+ </div>
+</div>
+    </div>
+</div>
+
+{% endblock content %}

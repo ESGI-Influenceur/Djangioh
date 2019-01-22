@@ -1,0 +1,20 @@
+{% extends 'mysite/layout.html' %}
+
+{% block content %}
+
+<div class="my-3 my-md-5">
+
+    <div class="container">
+        {% if result %}
+        <div class="alert alert-success" role="alert">
+            VOUS AVEZ GAGNE 100 PTS !
+        </div>
+        {% else %}
+        <div class="alert alert-danger" role="alert">
+            VOUS AVEZ PERDU ! ESSAYEZ ENCORE !
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}

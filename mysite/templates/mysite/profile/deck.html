@@ -1,0 +1,84 @@
+{% extends 'mysite/layout.html' %}
+
+{% block content %}
+
+<div class="my-3 my-md-5">
+
+    <div class="map-header">
+        <div class="header-cards">
+
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="page-header" style="display: flex">
+
+            <h1 class="page-title" style="z-index: 99">
+                {{ deck.title}}
+            </h1>
+
+            <span style="flex: 1 0 auto"></span>
+            <a href="{% url 'decks' %}" class="btn btn-pill btn-secondary" style="z-index: 99;
+    align-self: center;">Retour</a>
+
+        </div>
+        <div class="row row-cards" >
+
+            {% for card in cards %}
+                <img src="/static/images/cards/{{card.image}}" style="width: 200px; height:100%;z-index:99">
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--
+<section class="section help-section">
+
+        <div class="container">
+            <div class="columns is-multiline">
+
+                <span class="tag is-outlined">{{ deck }}</span>
+
+                <a href="{% url 'decks' %}" class="button ml-auto">Retour à mes decks</a>
+            </div>
+            <div class="columns is-multiline">
+                {% for card in cards %}
+
+                    <div class="column is-4 ">
+                        <div class="flex-card media-card media-card-left light-bordered light-raised">
+                            <div class="columns is-gapless is-desktop">
+                                <div class="column is-5  media-stretch">
+                                    <img class="media-card-image"  src="data:;base64,{{ card.image }}"/>
+                                </div>
+                                <div class="column content-column">
+                                    <div class="mcard-content" style="overflow: auto">
+                                        <h3 class="mcard-title"><a href="#">{{ card.name }}</a></h3>
+                                        <p class="mcard-description is-hidden-touch">{{ card.description }} </p>
+
+                                    </div>
+                                    <div class="mcard-controls">
+                                        <div class="mcard-info">
+                                            <div class="field mt-40">
+                                                <h3>Attaque : {{ card.attaque }}</h3>
+                                                <h3>Defense : {{ card.defense }}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <a class="button btn-align is-warning" href="{% url 'updateDeck' deck.id %}">Update deck</a>
+            <a class="button btn-align is-danger" href="{% url 'deleteDeck' deck.id %}">Delete current deck</a>
+        </div>
+
+    </section>
+-->
+
+{% endblock %}

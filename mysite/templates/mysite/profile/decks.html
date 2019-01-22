@@ -1,0 +1,59 @@
+{% extends 'mysite/layout.html' %}
+
+{% block content %}
+
+
+
+
+<div class="my-3 my-md-5">
+    <div class="map-header">
+        <div class="header-cards">
+
+        </div>
+    </div>
+    <div class="container listFilm">
+        <div class="page-header" style="display: flex">
+
+            <h1 class="page-title" style="z-index: 99">
+                Mes decks
+            </h1>
+            <span style="flex: 1 0 auto"></span>
+            <a href="{% url 'addDecks' %}" class="btn btn-pill btn-success" style="z-index: 99;
+    align-self: center;">Ajouter un nouveau deck</a>
+        </div>
+        <div class="row">
+            {% for deck in allDecks %}
+            <div class="col-md-12 col-lg-6">
+                <div class="card" style="min-height: auto !important;">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <a href="{% url 'deck' deck.id %}">{{ deck.title }}</a>
+                        </h3>
+
+                        <div class="card-options">
+
+                            <a href="{% url 'deck' deck.id %}" class="btn btn-outline-primary btn-sm mr-2">Visualiser</a>
+                            <a href="{% url 'updateDeck' deck.id %}" class="btn btn-outline-warning btn-sm mr-2">Editer</a>
+                            <a href="{% url 'deleteDeck' deck.id %}" class="btn btn-outline-danger btn-sm">Supprimer</a>
+                        </div>
+                    </div>
+                    <div class="card-body p-0" style="height: 156px !important;width: 100%;display: flex;flex-direction: row;overflow-y: hidden;" >
+
+                        {% for card in deck.cards.all %}
+                        <img src="/static/images/cards/{{card.image}}" class="deck-list">
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col">
+                You do not have any decks yet.
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

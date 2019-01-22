@@ -1,0 +1,9 @@
+Django
+django-adminplus==0.5
+requests==2.18.4
+pytz
+psycopg2
+dj-database-url
+gunicorn
+django-heroku
+whitenoise
